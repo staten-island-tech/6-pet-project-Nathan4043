@@ -33,10 +33,28 @@ class pet:
     def buy(self, item):
         self.inventory.append(item)
         print(self.inventory)
-Namepet= input("Name pet")
-Pet = pet(Namepet, 50, 50)
+Pet = pet("pet", 50, 50,[])
 Pet.buy({"title": "Food", "hunger":10})
+print (Pet. __dict__)
+while True:
+    feed = input ("feed yes or no")
+    if feed.lower() == "yes":
+        Pet.hunger += 10
+    if Pet.hunger > 100:
+        Pet.hunger = 100 
+    print(f"Happiness:", (Pet.hunger))
 
+    if feed.lower() == "no":
+        break
+    play = input ("feed yes or no")
+    if play.lower() == "yes":
+        Pet.hunger += 10
+    if Pet.hunger > 100:
+        Pet.hunger = 100 
+    print(f"Happiness:", (Pet.hunger))
+    
+    if feed.lower() == "no":
+        break
 
 
  
