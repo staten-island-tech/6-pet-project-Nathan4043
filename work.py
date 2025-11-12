@@ -24,37 +24,53 @@
 
     
 class pet:
-    def __init__(self, name, happiness, hunger, inventory):
+    def __init__(self, name, happiness, hunger, thirst, love, inventory):
         self.name = name 
         self.happiness = int(happiness)
         self.hunger = int(hunger)
+        self.thirst = int(thirst)
+        self.love = int(love)
         self.inventory = [inventory]
 
     def buy(self, item):
         self.inventory.append(item)
         print(self.inventory)
-Pet = pet("pet", 50, 50,[])
+Pet = pet("pet", 50, 50,50,50, [])
 Pet.buy({"title": "Food", "hunger":10})
 print (Pet. __dict__)
 while True:
-    feed = input ("feed yes or no")
-    if feed.lower() == "yes":
+    activity= input ("play or feed or give water or care")
+    if activity.lower() == "feed":
         Pet.hunger += 10
     if Pet.hunger > 100:
         Pet.hunger = 100 
-    print(f"Happiness:", (Pet.hunger))
+        print("pet is full")
+    print(f"Hunger:", (Pet.hunger))
 
-    if feed.lower() == "no":
-        break
-    play = input ("feed yes or no")
-    if play.lower() == "yes":
-        Pet.hunger += 10
-    if Pet.hunger > 100:
-        Pet.hunger = 100 
-    print(f"Happiness:", (Pet.hunger))
+    if activity.lower() == "play":
+        Pet.happiness += 10
+    if Pet.happiness > 100:
+        Pet.happiness = 100 
+        print("Pet is super happy")
+    print(f"Happiness:", (Pet.happiness))
     
-    if feed.lower() == "no":
-        break
+    if activity.lower() == "give water":
+        Pet.thirst += 10
+    if Pet.thirst > 100:
+        Pet.thirst = 100 
+        print("pet is vanquished of its thirst")
+    print(f"Thirst:", (Pet.thirst))
+
+    if activity.lower() == "care":
+        Pet.love += 10
+    if Pet.love > 100:
+        Pet.love = 100 
+        print("pet feels loved for")
+    print(f"Love:", (Pet.love))
+
+    
+    if activity.lower() == "no":
+        continue
 
 
  
