@@ -19,52 +19,48 @@ while True:
 
     if activity.lower() == "1":
         Pet.hunger += 10
-        Pet.happiness -=3
-        Pet.love -=3
-        Pet.thirst -=3
+        Pet.happiness -=2
+        Pet.love -=2
+        Pet.thirst -=2
     if Pet.hunger > 100:
         Pet.hunger = 100 
         print("pet is full")
-    print(f"Hunger:", (Pet.hunger))
     if Pet.hunger ==0:
         print("pet was unfed and died")
         exit()
 
     if activity.lower() == "2":
         Pet.happiness += 10
-        Pet.hunger -=3
-        Pet.love -=3
-        Pet.thirst -=3
+        Pet.hunger -=2
+        Pet.love -=2
+        Pet.thirst -=2
     if Pet.happiness > 100:
         Pet.happiness = 100 
         print("Pet is super happy")
-    print(f"Happiness:", (Pet.happiness))
     if Pet.happiness ==0:
         print("pet was despressed he lowkey might be dead")
         exit()
 
     if activity.lower() == "3":
         Pet.thirst += 10
-        Pet.hunger -=3
-        Pet.love -=3
-        Pet.happiness-=3
+        Pet.hunger -=2
+        Pet.love -=2
+        Pet.happiness-=2
     if Pet.thirst > 100:
         Pet.thirst = 100 
         print("pet is vanquished of its thirst")
-    print(f"Thirst:", (Pet.thirst))
     if Pet.thirst ==0:
         print("pet was not given water, pet is dried up like a raisin")
         exit()
 
     if activity.lower() == "4":
         Pet.love += 10
-        Pet.happiness -=3
-        Pet.hunger-=3
-        Pet.thirst -=3
+        Pet.happiness -=2
+        Pet.hunger-=2
+        Pet.thirst -=2
     if Pet.love > 100:
         Pet.love = 100
         print("pet feels loved for")
-    print(f"Love:", (Pet.love))
     if Pet.love ==0:
         print("pet was uncared for, it ran away")
         exit()
