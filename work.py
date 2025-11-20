@@ -76,6 +76,13 @@ while True:
     print(f"Love: {Pet.love}")
     if activity.lower() == "no":
         continue
+    items =[
+        {
+            "name": "Whole pizza"
+            "stat": 50 
+        }
+    ]   
+    if activity.lower() == "shop":
 
 
- 
+        "Whole pizza:50 hunger","Water Jug: 50 thirst","Awesome ball: 50 Happiness","Brush:50 Care/love","Slot machine(pick this plsplspslpsls): gmable"
