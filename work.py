@@ -15,7 +15,7 @@ Pet = pet("pet", 50, 50,50,50, [])
 Pet.buy({"title": "Food", "hunger":10})
 print (Pet. __dict__)
 while True:
-    activity= input ("1:play or 2:feed or 3:water or 4:care")
+    activity= input ("1:play or 2:feed or 3:water or 4:care 5:shop")
 
     if activity.lower() == "1":
         Pet.hunger += 10
@@ -64,47 +64,51 @@ while True:
     if Pet.love ==0:
         print("pet was uncared for, it ran away")
         exit()
+
     if Pet.hunger < 0: Pet.hunger = 0 
     if Pet.happiness < 0: Pet.happiness = 0
     if Pet.thirst < 0: Pet.thirst = 0
     if Pet.love < 0: Pet.love = 0
-    
     print(f"Hunger: {Pet.hunger}")
     print(f"Happiness: {Pet.happiness}")
     print(f"Thirst: {Pet.thirst}")
     print(f"Love: {Pet.love}")
     if activity.lower() == "no":
         continue
-    items =[
-        {
-            "name": "Whole pizza",
-            "stat": 50 
-        },
-        {  
-            "name": "Water Jug",
-            "stat": 50
-        },
-        {
-            "name": "Awesome ball",
-            "stat": 50
-        },
-        {
-            "name": "Brush",
-            "stat": 50
-        },
-        {
-            "name": "slot machine",
-            "stat": "ganmble"
-        }  
-            ]   
-    if activity.lower() == "shop":
-        for index, item in enumerate(items):
-            print(index, ":", item["name"], index, ":", item["stat"])
-            choices = input("What would you like to buy? Type a number based on the options:")
-            chosen_item = items[int(choices)]
-            print(f"Select?"[chosen_item],"Gives:"["stat"])
+    if activity.lower() == "5":
 
-
+        items = [
+    {
+        "name": "Whole pizza",
+        "stat": 50,
+        "effect": "hunger"
+    },
+    {  
+        "name": "Water Jug",
+        "stat": 50,
+        "effect": "thirst"
+    },
+    {
+        "name": "Awesome ball",
+        "stat": 50,
+        "effect": "happiness"
+    },
+    {
+        "name": "Brush",
+        "stat": 50,
+        "effect": "care/love"
+    },
+    
+    {
+        "name": "slot machine",
+        "stat": "gamble"   
+    }
+    ]
+    for index, item in enumerate(items):
+        print(index, ":", item["name"], "-", item["stat"])
+    choice = int(input("What would you like to buy? Type a number: "))
+    chosen_item = items[choice]
+    print("Selected:", chosen_item["name"])
 
 
 
