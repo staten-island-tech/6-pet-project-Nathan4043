@@ -65,14 +65,26 @@ while True:
     print(f"Thirst: {Pet.thirst}")
     print(f"Love: {Pet.love}")
     print(f"Money$:{Pet.money}")
-    if activity.lower() == "no":
-        continue
+
+    if Pet.hunger > 100:
+        Pet.hunger = 100
+    if Pet.love > 100:
+        Pet.love = 100
+    if Pet.thirst > 100:
+        Pet.thirst = 100
+    if Pet.happiness > 100:
+        Pet.happiness = 100
+    if Pet.money > 0:
+        print("dawg, you in cripping debt")
+        break
+
+
 
     if activity.lower() == "5":
         slot=random.randint(1,50)
         Pet.money -=5
         if slot == 7:
-            print("winner")
+            print("YOU WON BIG KEEP GOING DUDE")
             Pet.money += 250
 
         
