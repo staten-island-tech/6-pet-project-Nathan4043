@@ -9,7 +9,6 @@ class pet:
         self.money = int(money)
 slot=random.randint(1,10)
 Pet = pet("pet", 50, 50,50,50,100)
-Pet.buy({"title": "Food", "hunger":10})
 print (Pet. __dict__)
 while True:
     activity= input ("1:play or 2:feed or 3:water or 4:care 5:slot machine")
@@ -68,8 +67,15 @@ while True:
     print(f"Money$:{Pet.money}")
     if activity.lower() == "no":
         continue
+
     if activity.lower() == "5":
-    
+        slot=random.randint(1,50)
+        Pet.money -=5
+        if slot == 7:
+            print("winner")
+            Pet.money += 250
+
+        
     
       
 
