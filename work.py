@@ -1,31 +1,28 @@
-
+import random
 class pet:
-    def __init__(self, name, happiness, hunger, thirst, love, inventory):
+    def __init__(self, name, happiness, hunger, thirst, love, money ):
         self.name = name 
         self.happiness = int(happiness)
         self.hunger = int(hunger)
         self.thirst = int(thirst)
         self.love = int(love)
-        self.inventory = [inventory]
-
-    def buy(self, item):
-        self.inventory.append(item)
-        print(self.inventory)
-Pet = pet("pet", 50, 50,50,50, [])
+        self.money = int(money)
+slot=random.randint(1,10)
+Pet = pet("pet", 50, 50,50,50,100)
 Pet.buy({"title": "Food", "hunger":10})
 print (Pet. __dict__)
 while True:
-    activity= input ("1:play or 2:feed or 3:water or 4:care 5:shop")
+    activity= input ("1:play or 2:feed or 3:water or 4:care 5:slot machine")
 
     if activity.lower() == "1":
         Pet.hunger += 10
         Pet.happiness -=2
         Pet.love -=2
         Pet.thirst -=2
+        Pet.money += 10
     if Pet.hunger > 100:
         Pet.hunger = 100 
-        print("pet is full")
-    if Pet.hunger ==0:
+    if Pet.hunger <=0:
         print("pet was unfed and died")
         exit()
 
@@ -34,10 +31,10 @@ while True:
         Pet.hunger -=2
         Pet.love -=2
         Pet.thirst -=2
+        Pet.money += 10
     if Pet.happiness > 100:
         Pet.happiness = 100 
-        print("Pet is super happy")
-    if Pet.happiness ==0:
+    if Pet.happiness <=0:
         print("pet was despressed he lowkey might be dead")
         exit()
 
@@ -46,10 +43,10 @@ while True:
         Pet.hunger -=2
         Pet.love -=2
         Pet.happiness-=2
+        Pet.money += 10
     if Pet.thirst > 100:
         Pet.thirst = 100 
-        print("pet is vanquished of its thirst")
-    if Pet.thirst ==0:
+    if Pet.thirst <=0:
         print("pet was not given water, pet is dried up like a raisin")
         exit()
 
@@ -57,58 +54,24 @@ while True:
         Pet.love += 10
         Pet.happiness -=2
         Pet.hunger-=2
+        Pet.money += 10
         Pet.thirst -=2
     if Pet.love > 100:
         Pet.love = 100
-        print("pet feels loved for")
-    if Pet.love ==0:
+    if Pet.love <=0:
         print("pet was uncared for, it ran away")
         exit()
-
-    if Pet.hunger < 0: Pet.hunger = 0 
-    if Pet.happiness < 0: Pet.happiness = 0
-    if Pet.thirst < 0: Pet.thirst = 0
-    if Pet.love < 0: Pet.love = 0
     print(f"Hunger: {Pet.hunger}")
     print(f"Happiness: {Pet.happiness}")
     print(f"Thirst: {Pet.thirst}")
     print(f"Love: {Pet.love}")
+    print(f"Money$:{Pet.money}")
     if activity.lower() == "no":
         continue
     if activity.lower() == "5":
-
-        items = [
-    {
-        "name": "Whole pizza",
-        "stat": 50,
-        "effect": "hunger"
-    },
-    {  
-        "name": "Water Jug",
-        "stat": 50,
-        "effect": "thirst"
-    },
-    {
-        "name": "Awesome ball",
-        "stat": 50,
-        "effect": "happiness"
-    },
-    {
-        "name": "Brush",
-        "stat": 50,
-        "effect": "care/love"
-    },
     
-    {
-        "name": "slot machine",
-        "stat": "gamble"   
-    }
-    ]
-    for index, item in enumerate(items):
-        print(index, ":", item["name"], "-", item["stat"])
-    choice = int(input("What would you like to buy? Type a number: "))
-    chosen_item = items[choice]
-    print("Selected:", chosen_item["name"])
+    
+      
 
 
 
