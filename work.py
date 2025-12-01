@@ -74,7 +74,8 @@ while True:
         Pet.thirst = 100
     if Pet.happiness > 100:
         Pet.happiness = 100
-    if Pet.money > 0:
+
+    if Pet.money < 0:
         print("dawg, you in cripping debt")
         break
 
@@ -86,7 +87,6 @@ while True:
         if slot == 7:
             print("YOU WON BIG KEEP GOING DUDE")
             Pet.money += 250
-
         
     
       
