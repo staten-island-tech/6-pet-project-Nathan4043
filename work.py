@@ -61,16 +61,16 @@ while True:
     def checkdeath():
         if Pet.hunger <=0:
             print (f"{name_pet} was not fed, it died")
-        if Pet.love <=0:
+        elif Pet.love <=0:
             print(f"{name_pet} was uncared for, it ran away")
             exit()
-        if Pet.happiness <=0:
+        elif Pet.happiness <=0:
             print(f"{name_pet} was despressed it lowkey might be dead")
             exit()
-        if Pet.thirst <=0:
+        elif Pet.thirst <=0:
             print(f"{name_pet} was not given water, pet is dried up like a raisin")
             exit()
-        if Pet.money <= 0:
+        elif Pet.money <= 0:
             print("dawg, you in cripping debt")
             exit()
     
