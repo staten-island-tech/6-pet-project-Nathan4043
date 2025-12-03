@@ -19,11 +19,6 @@ while True:
         Pet.love -=2
         Pet.thirst -=2
         Pet.money += 10
-    if Pet.hunger > 100:
-        Pet.hunger = 100 
-    if Pet.hunger <=0:
-        print("pet was unfed and died")
-        exit()
 
     def happiness():
         Pet.happiness += 10
@@ -31,11 +26,6 @@ while True:
         Pet.love -=2
         Pet.thirst -=2
         Pet.money += 10
-    if Pet.happiness > 100:
-        Pet.happiness = 100 
-    if Pet.happiness <=0:
-        print("pet was despressed he lowkey might be dead")
-        exit()
 
     def water():
         Pet.thirst += 10
@@ -43,23 +33,38 @@ while True:
         Pet.love -=2
         Pet.happiness-=2
         Pet.money += 10
-    if Pet.thirst > 100:
-        Pet.thirst = 100 
-    if Pet.thirst <=0:
-        print("pet was not given water, pet is dried up like a raisin")
-        exit()
-    
+
     def love():
         Pet.love += 10
         Pet.happiness -=2
         Pet.hunger-=2
         Pet.money += 10
         Pet.thirst -=2
-    if Pet.love > 100:
-        Pet.love = 100
-    if Pet.love <=0:
-        print("pet was uncared for, it ran away")
-        exit()
+
+    def overcap():
+        if Pet.hunger > 100:
+            Pet.hunger = 100
+        elif Pet.love > 100:
+            Pet.love = 100
+        elif Pet.thirst > 100:
+            Pet.thirst = 100
+        elif Pet.happiness > 100:
+            Pet.happiness = 100
+
+    def checkdeath():
+        if Pet.love <=0:
+            print("pet was uncared for, it ran away")
+            exit()
+        elif Pet.happiness <=0:
+            print("pet was despressed he lowkey might be dead")
+            exit()
+        elif Pet.thirst <=0:
+            print("pet was not given water, pet is dried up like a raisin")
+            exit()
+        elif Pet.happiness <=0:
+            print("pet was despressed he lowkey might be dead")
+            exit()
+
 
     if activity.lower() == "1":
         hungry()
@@ -75,15 +80,8 @@ while True:
     elif activity not in options:
         print("Wrong option, Choose again")
         continue
-
-    if Pet.hunger > 100:
-        Pet.hunger = 100
-    if Pet.love > 100:
-        Pet.love = 100
-    if Pet.thirst > 100:
-        Pet.thirst = 100
-    if Pet.happiness > 100:
-        Pet.happiness = 100
+    overcap()
+    checkdeath()
 
     if Pet.money < 0:
         print("dawg, you in cripping debt")
