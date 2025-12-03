@@ -1,14 +1,15 @@
 import random
+name_pet = input("name the pet")
 class pet:
     def __init__(self, name, happiness, hunger, thirst, love, money ):
-        self.name = name 
+        self.name = name
         self.happiness = int(happiness)
         self.hunger = int(hunger)
         self.thirst = int(thirst)
         self.love = int(love)
         self.money = int(money)
 slot=random.randint(1,10)
-Pet = pet("pet", 50, 50,50,50,100)
+Pet = pet(name_pet, 50, 50,50,50,100)
 print (Pet. __dict__)
 while True:
     options = ["1","2","3","4","5"]
@@ -44,48 +45,63 @@ while True:
     def overcap():
         if Pet.hunger > 100:
             Pet.hunger = 100
-        elif Pet.love > 100:
+        if Pet.love > 100:
             Pet.love = 100
-        elif Pet.thirst > 100:
+        if Pet.thirst > 100:
             Pet.thirst = 100
-        elif Pet.happiness > 100:
+        if Pet.happiness > 100:
             Pet.happiness = 100
+    def gamble():
+        slot=random.randint(7,77)
+        Pet.money -=7
+        if slot == 77:
+            print("YOU WON BIG KEEP GOING DUDE")
+            Pet.money += 777
 
     def checkdeath():
+        if Pet.hunger <=0:
+            print (f"{name_pet} was not fed, it died")
         if Pet.love <=0:
-            print("pet was uncared for, it ran away")
+            print(f"{name_pet} was uncared for, it ran away")
             exit()
-        elif Pet.happiness <=0:
-            print("pet was despressed he lowkey might be dead")
+        if Pet.happiness <=0:
+            print(f"{name_pet} was despressed it lowkey might be dead")
             exit()
-        elif Pet.thirst <=0:
-            print("pet was not given water, pet is dried up like a raisin")
+        if Pet.thirst <=0:
+            print(f"{name_pet} was not given water, pet is dried up like a raisin")
             exit()
-        elif Pet.happiness <=0:
-            print("pet was despressed he lowkey might be dead")
+        if Pet.money <= 0:
+            print("dawg, you in cripping debt")
             exit()
-
+    
+    overcap()
+    checkdeath()
 
     if activity.lower() == "1":
-        hungry()
+        happiness()
 
     elif activity.lower() == "2":
-        happiness()
+        hungry()
 
     elif activity.lower() == "3":
         water()
 
     elif activity.lower() == "4":
         love()
+    
+    elif activity.lower() == "5":
+        slot=random.randint(7,77)
+        Pet.money -=5
+        if slot == 77:
+            print("YOU WON BIG KEEP GOING DUDE")
+            Pet.money += 777
+
     elif activity not in options:
         print("Wrong option, Choose again")
         continue
+
     overcap()
     checkdeath()
-
-    if Pet.money < 0:
-        print("dawg, you in cripping debt")
-        break
 
     if activity.lower() == "5":
         slot=random.randint(7,77)
@@ -94,11 +110,7 @@ while True:
             print("YOU WON BIG KEEP GOING DUDE")
             Pet.money += 777
 
-    print(f"Hunger: {Pet.hunger}")
-    print(f"Happiness: {Pet.happiness}")
-    print(f"Thirst: {Pet.thirst}")
-    print(f"Love: {Pet.love}")
-    print(f"Money$:{Pet.money}")
+    print(f"{name_pet}'s stats: Happiness:{Pet.happiness} Hunger:{Pet.hunger} Thirst:{Pet.thirst} Love:{Pet.love} Cash:{Pet.money}")
         
     
       
