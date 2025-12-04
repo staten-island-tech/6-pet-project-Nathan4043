@@ -10,6 +10,7 @@ class pet:
         self.money = int(money)
 slot=random.randint(1,10)
 Pet = pet(name_pet, 50, 50,50,50,100)
+petstat= [Pet.hunger, Pet.thirst, Pet.happiness, Pet.love, Pet.money]
 print (Pet. __dict__)
 while True:
     options = ["1","2","3","4","5"]
@@ -43,14 +44,8 @@ while True:
         Pet.thirst -=2
 
     def overcap():
-        if Pet.hunger > 100:
-            Pet.hunger = 100
-        if Pet.love > 100:
-            Pet.love = 100
-        if Pet.thirst > 100:
-            Pet.thirst = 100
-        if Pet.happiness > 100:
-            Pet.happiness = 100
+        for stat in ("hunger", "love", "thirst", "happiness"):
+            setattr(Pet, stat, min(getattr(Pet, stat), 100))
     def gamble():
         slot=random.randint(7,77)
         Pet.money -=7
@@ -70,45 +65,25 @@ while True:
         elif Pet.thirst <=0:
             print(f"{name_pet} was not given water, pet is dried up like a raisin")
             exit()
-        elif Pet.money <= 0:
-            print("dawg, you in cripping debt")
-            exit()
-    
-    overcap()
-    checkdeath()
+        elif activity.lower() == "5":
+            gamble()
 
-    if activity.lower() == "1":
-        happiness()
-
-    elif activity.lower() == "2":
-        hungry()
-
-    elif activity.lower() == "3":
-        water()
-
-    elif activity.lower() == "4":
-        love()
-    
-    elif activity.lower() == "5":
-        slot=random.randint(7,77)
-        Pet.money -=5
-        if slot == 77:
-            print("YOU WON BIG KEEP GOING DUDE")
-            Pet.money += 777
-
-    elif activity not in options:
-        print("Wrong option, Choose again")
+    actions = {
+        "1": happiness,
+        "2": hungry,
+        "3": water,
+        "4": love,
+        "5": gamble,
+    }
+    choice = activity.lower()
+    if choice in actions:
+        actions[choice]()
+    else:
+        print ("Wrong option, Choose again")
         continue
 
     overcap()
     checkdeath()
-
-    if activity.lower() == "5":
-        slot=random.randint(7,77)
-        Pet.money -=5
-        if slot == 77:
-            print("YOU WON BIG KEEP GOING DUDE")
-            Pet.money += 777
 
     print(f"{name_pet}'s stats: Happiness:{Pet.happiness} Hunger:{Pet.hunger} Thirst:{Pet.thirst} Love:{Pet.love} Cash:{Pet.money}")
         
