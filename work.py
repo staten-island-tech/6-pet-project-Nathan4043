@@ -46,6 +46,7 @@ while True:
     def overcap():
         for stat in ("hunger", "love", "thirst", "happiness"):
             setattr(Pet, stat, min(getattr(Pet, stat), 100))
+            #condenses the like the 40 if statements better
     def gamble():
         slot=random.randint(7,77)
         Pet.money -=7
@@ -81,15 +82,12 @@ while True:
     else:
         print ("Wrong option, Choose again")
         continue
-
+        
     overcap()
     checkdeath()
 
     print(f"{name_pet}'s stats: Happiness:{Pet.happiness} Hunger:{Pet.hunger} Thirst:{Pet.thirst} Love:{Pet.love} Cash:{Pet.money}")
-        
-    
-      
-    "g   "     
+
 
 
 
