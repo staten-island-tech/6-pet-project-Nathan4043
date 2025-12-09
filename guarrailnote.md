@@ -9,4 +9,4 @@ The password must be at least 8 characters long.
 The password must include at least one number.
 The password must include at least one uppercase letter.
 If ANY of these rules are broken, the function should return an error message explaining what went wrong.
-If EVERYTHING is good, the function should return a dictionary that represents the newly created user
+If EVERYTHING is good, the function should return a dictionary that represents the newly created userpass
